@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripture Sorter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Scripture Sorter</h1>
+        <p>Find and sort verses from the Bible</p>
+    </header>
+
+    <main>
+        <section class="search-controls">
+            <div class="input-group">
+                <input type="text" id="searchInput" placeholder="Enter keyword (e.g., love, faith, peace)..." value="faith">
+                <button id="searchBtn">Search</button>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sortFilter">Sort by:</label>
+                <select id="sortFilter">
+                    <option value="az">A to Z (Book Name)</option>
+                    <option value="za">Z to A (Book Name)</option>
+                    <option value="newest">Newest to Oldest (Canonical Order)</option>
+                    <option value="oldest" selected>Oldest to Newest (Canonical Order)</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="resultsContainer" class="results-container">
+            <div class="status-message">Enter a keyword to search for scriptures.</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Scripture Sorter. Powered by Bible SuperSearch API.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

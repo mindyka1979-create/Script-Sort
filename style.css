@@ -1,0 +1,237 @@
+:root {
+    --primary-color: #3c6b83;
+    --secondary-color: #34495e;
+    --accent-color: #8f97bf;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --footer-bg: #3c6b83;
+    --footer-text: #ecf0f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.9;
+}
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+.search-controls {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Desktop layout for search controls */
+@media (min-width: 768px) {
+    .search-controls {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.input-group {
+    display: flex;
+    flex: 2;
+    gap: 0.5rem;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#searchBtn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.1s;
+    white-space: nowrap;
+}
+
+#searchBtn:hover {
+    background-color: #2980b9;
+}
+
+#searchBtn:active {
+    transform: scale(0.98);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+    .filter-group {
+        justify-content: flex-end;
+    }
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    white-space: nowrap;
+}
+
+#sortFilter {
+    padding: 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+}
+
+.results-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Responsive Grid */
+@media (min-width: 640px) {
+    .results-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .results-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.status-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.verse-card {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.verse-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.verse-ref {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.verse-text {
+    font-size: 1.05rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Touch optimizations */
+@media (max-width: 480px) {
+    .input-group {
+        flex-direction: column;
+    }
+    
+    #searchBtn {
+        width: 100%;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #sortFilter {
+        max-width: 100%;
+    }
+}
